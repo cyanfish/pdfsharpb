@@ -1,0 +1,7 @@
+Desktop.ini
+packages/
+*.user
+*.suo
+bin/
+obj/
+*.snk
