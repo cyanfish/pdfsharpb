@@ -1531,6 +1531,11 @@ namespace PdfSharp.Drawing
 
 #if CORE_WITH_GDI || GDI
         internal Image _gdiImage;
+
+        /// <summary>
+        /// Gets the internal image representation.
+        /// </summary>
+        public Image GdiImage { get { return _gdiImage; } }
 #endif
 #if WPF
         internal BitmapSource _wpfImage;
