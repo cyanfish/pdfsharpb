@@ -145,6 +145,20 @@ namespace PdfSharp.Pdf.IO
 
                 case '.':
                     return _symbol = ScanNumber();
+
+                case '#':
+                    // Not part of the PDF spec, but at least one program includes
+                    // "#QNB" which is a math error. We can try to ignore it
+                    if (_nextChar == 'Q')
+                    {
+                        ScanNextChar(true);
+                        ScanNextChar(true);
+                        ScanNextChar(true);
+                        ScanNextChar(true);
+                        return ScanNextToken();
+                    }
+                    ParserDiagnostics.HandleUnexpectedCharacter(ch);
+                    break;
             }
             if (char.IsDigit(ch))
 #if true_
