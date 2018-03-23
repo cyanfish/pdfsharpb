@@ -429,8 +429,8 @@ namespace PdfSharp.Pdf.IO
                         bytes = _securityHandler.EncryptBytes(bytes);
                     }
                     Write(bytes);
-                    if (_lastCat != CharCat.NewLine)
-                        WriteRaw('\n');
+                    // if (_lastCat != CharCat.NewLine)
+                    WriteRaw('\n');
                 }
             }
             WriteRaw("endstream\n");
